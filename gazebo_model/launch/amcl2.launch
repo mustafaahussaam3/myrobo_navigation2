@@ -1,0 +1,15 @@
+<launch>
+
+
+  <arg name="map_file" default="$(find gazebo_model)/maps/willo.yaml"/>
+  <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)" />
+
+
+  <include file="$(find gazebo_model)/launch/includes/amcl.launch.xml">
+    <arg name="initial_pose_x" value="3.0"/>
+    <arg name="initial_pose_y" value="0.0"/>
+    <arg name="initial_pose_a" value="0"/>
+  </include>
+
+
+</launch>
